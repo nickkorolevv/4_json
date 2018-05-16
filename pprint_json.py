@@ -1,29 +1,26 @@
 import json
-import os
+import sys
 
 
-def get_filepath():
-    way_to_file = os.path.abspath(os.curdir) + "\\"
-    filepath = way_to_file + input("Введите название файла \n")
-    return filepath
-
-
-def load_data():
-    filepath = get_filepath()
+def load_data(filepath):
     with open (filepath, 'r', encoding='utf-8') as file_handler:
         return json.load(file_handler)
 
 
-def pretty_json_print():
-    data_file = load_data()
-    pretty_print = json.dumps(data_file, indent=2, ensure_ascii=False)
+def pretty_json_print(filename):
+    pretty_print = json.dumps(filename, indent=2, ensure_ascii=False)
     print(pretty_print)
 
 
 def main():
-    pretty_json_print()
+    filename = load_data(filepath)
+    pretty_json_print(filename)
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        filepath = format(sys.argv[1])
+    else:
+        filepath = input("Укажите путь до json файла: ")
     main()
 
