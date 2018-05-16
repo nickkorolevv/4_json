@@ -1,5 +1,5 @@
 
-# Prettify JSON
+# Красивый вывод JSON файла
 
 [JSON](https://ru.wikipedia.org/wiki/JSON) – популярный формат передачи данных. Он универсальный, текстовый, удобный и распространённый.
 В сыром виде он представляет собой строку, которую сложно прочесть
@@ -11,9 +11,9 @@
  - [ ] Функция `pretty_json_print`выполняет функцию вывода произвольного файла в консоли в удобном для чтения виде
  
 
-# Quickstart
+# Быстрый старт
 
-Example of script launch on Linux, Python 3.5:
+Пример запуска скрипта на Linux, Python 3.5:
 
 ```bash
 
@@ -81,6 +81,6 @@ $ python pprint_json.py <path to file>
 
 ```
 
-# Project Goals
+# Цель проекта
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+Код написан в образовательных целях. Курс для веб-разработчиков - [DEVMAN.org](https://devman.org)
