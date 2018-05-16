@@ -13,8 +13,8 @@ def pretty_json_print(filename):
 
 
 def main():
-    filename = load_data(filepath)
-    pretty_json_print(filename)
+    dataname = load_data(filepath)
+    pretty_json_print(dataname)
 
 
 if __name__ == "__main__":
