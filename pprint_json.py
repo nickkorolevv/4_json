@@ -8,7 +8,6 @@ def load_data(filepath):
         try:
             return json.load(file_handler)
         except ValueError:
-            print("Файл не является JSON-объектом")
             return None
 
 
@@ -22,9 +21,12 @@ if __name__ == "__main__":
         filepath = sys.argv[1]
     else:
         exit("Файл не выбран, пожалуйста выберите файл")
-    if os.path.exists(filepath) == True:
+    if os.path.exists(filepath):
         decoded_json = load_data(filepath)
-        pretty_json_print(decoded_json)
+        if load_data(filepath) is None:
+            print("Файл не является JSON объектом")
+        else:
+            pretty_json_print(decoded_json)
     else:
         print("Файла нет в директории")
 
