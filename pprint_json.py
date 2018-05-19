@@ -1,10 +1,15 @@
 import json
 import sys
+import os
 
 
 def load_data(filepath):
     with open (filepath, "r", encoding="utf-8") as file_handler:
-        return json.load(file_handler)
+        try:
+            return json.load(file_handler)
+        except ValueError:
+            print("Файл не является JSON-объектом")
+            return None
 
 
 def pretty_json_print(decoded_json):
@@ -14,9 +19,12 @@ def pretty_json_print(decoded_json):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        filepath = format(sys.argv[1])
+        filepath = sys.argv[1]
     else:
         exit("Файл не выбран, пожалуйста выберите файл")
-    decoded_json = load_data(filepath)
-    pretty_json_print(decoded_json)
+    if os.path.exists(filepath) == True:
+        decoded_json = load_data(filepath)
+        pretty_json_print(decoded_json)
+    else:
+        print("Файла нет в директории")
 
