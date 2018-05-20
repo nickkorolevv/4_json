@@ -23,10 +23,10 @@ if __name__ == "__main__":
         exit("Файл не выбран, пожалуйста выберите файл")
     if os.path.exists(filepath):
         decoded_json = load_data(filepath)
-        if load_data(filepath) is None:
-            print("Файл не является JSON объектом")
+        if decoded_json is None:
+            exit("Файл не является JSON объектом")
         else:
             pretty_json_print(decoded_json)
     else:
-        print("Файла нет в директории")
+        exit("Файла нет в директории")
 
